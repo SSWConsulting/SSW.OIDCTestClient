@@ -1,0 +1,41 @@
+<div class="gray-div">
+    <h3 class="title">Callback Page</h3>
+    <p>
+        Authorization code: {{ authCode }}
+    </p>
+
+    <div *ngIf="fetching">
+        <p>Fetching access token...</p>
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div>
+
+
+    <div id="result" *ngIf="gotResult">
+        <table class="table table-striped">
+            <tr>
+                <th>Access Token</th>
+                <td id="access-token">{{ accessToken }}</td>
+            </tr>
+            <tr>
+                <th>Id Token</th>
+                <td id="id-token">{{ idToken }}</td>
+            </tr>
+            <tr>
+                <th>Refresh Token</th>
+                <td id="refresh-token">{{ refreshToken }}</td>
+            </tr>
+            <tr>
+                <th>Expires In</th>
+                <td id="expires-in">{{ expiresIn }}</td>
+            </tr>
+            <tr>
+                <th>Token Type</th>
+                <td id="token-type">{{ tokenType }}</td>
+            </tr>
+            <tr>
+                <th>Scope</th>
+                <td id="scope">{{ scope }}</td>
+            </tr>
+        </table>
+    </div>
+</div>

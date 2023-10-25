@@ -1,0 +1,93 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+/* Title */
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Gray background div with centered content */
+.gray-div {
+    background-color: #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+}
+
+
+
+.error {
+    color: red;
+    font-weight: bold;
+}
+
+/* Striped table */
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+
+.table-striped {
+    table-layout: fixed;
+    width: 1200px;
+}
+
+.table-striped td {
+    word-wrap: break-word;
+}
+
+.table {
+    border-collapse: collapse;
+    border: 1px solid black;
+    border-radius: 8px;
+    table-layout: fixed;
+    width: 1200px;
+}
+
+.table td, .table th {
+    border: 1px solid black;
+    padding: 8px;
+    word-wrap: break-word;
+}
+
+.table-striped th {
+    text-align: left;
+    width: 100px;
+}
+
+.input-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.form-full-width {
+    width: 100%;
+  }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* CSS style for an info box */
+.info-box {
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    padding: 8px;
+    margin-bottom: 8px;
+}
+
+/* css style for inline code */
+.inline-code {
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    padding: 2px;
+    font-family: monospace;
+}

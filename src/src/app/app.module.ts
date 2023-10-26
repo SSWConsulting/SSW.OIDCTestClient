@@ -12,11 +12,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { CallbackComponent } from './callback/callback.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { ConfigComponent } from './config/config.component';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CallbackComponent
+    CallbackComponent,
+    ConfigComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatIconModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

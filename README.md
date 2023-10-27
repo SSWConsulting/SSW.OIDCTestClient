@@ -14,6 +14,12 @@ Sometimes when working on an OIDC server you need to test changes that require a
 * **Configuraable client ID:** Client ID can be changed to suit testing for a specific client configuration in your server, or set up a test client (see below)
 * **Configurable scopes:** Default scopes are provided, but you can remove these and/or add your own
 
+## Pre-requisites
+
+* NodeJS (latest should be fine): https://nodejs.org/en
+* NPM (latest should be fine): https://www.npmjs.com/
+* Angular CLI (latest should be fine): https://angular.io/cli
+
 ## Usage
 
 You will need to ensure you have a client (or App Registration in Azure, for example) configured in your OIDC server with a callback URL of `https://localhost:4200` (or whatever port you have Angular congfigured to run on). You can add this to an existing client configuration, or add a specific client for testing. For IdentityServer, for example, you could use the following configuration:
@@ -38,6 +44,12 @@ You will need to ensure you have a client (or App Registration in Azure, for exa
     "AllowedCorsOrigins": [ "https://localhost:4200" ]
   }
 },
+```
+
+Install dependencies:
+
+```bash
+npm i
 ```
 
 Then simply run the app:

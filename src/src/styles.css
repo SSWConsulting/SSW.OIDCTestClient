@@ -103,3 +103,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     padding: 2px;
     font-family: monospace;
 }
+
+.right-button {
+    float: right;
+}

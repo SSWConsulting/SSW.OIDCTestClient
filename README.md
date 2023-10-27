@@ -46,4 +46,7 @@ Then simply run the app:
 ng serve -o --ssl
 ```
 
-When running, change the client ID or scopes as requird.
+When running, change the client ID or scopes as requird (see screenshot above). Click the `Start Authentication` button to be redirected to your OIDC server's login page. Authenticate there and get redirected back, the app will then retrieve your tokens:
+
+<img width="600" alt="image" src="https://github.com/SSWConsulting/SSW.OIDCTestClient/assets/19944129/dd90ce52-523f-48df-af88-ce30a05ae1d5">
+

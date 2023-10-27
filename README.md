@@ -2,7 +2,8 @@
 
 A simple app for testing OIDC servers
 
-<img width="600" alt="image" src="https://github.com/SSWConsulting/SSW.OIDCTestClient/assets/19944129/5f270494-49c3-49e6-af8f-621aecccbe58">
+<img width="600" alt="image" src="https://github.com/SSWConsulting/SSW.OIDCTestClient/assets/19944129/9a8ac59b-9ad7-4e8a-ab67-eb17d5c606df">
+
 
 ## Purpose
 
@@ -60,5 +61,6 @@ ng serve -o --ssl
 
 When running, change the client ID or scopes as requird (see screenshot above). Click the `Start Authentication` button to be redirected to your OIDC server's login page. Authenticate there and get redirected back, the app will then retrieve your tokens:
 
-<img width="600" alt="image" src="https://github.com/SSWConsulting/SSW.OIDCTestClient/assets/19944129/dd90ce52-523f-48df-af88-ce30a05ae1d5">
+<img width="600" alt="image" src="https://github.com/SSWConsulting/SSW.OIDCTestClient/assets/19944129/7b3cc65f-3c91-4377-b2fd-c67edbc18002">
+
 

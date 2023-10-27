@@ -9,20 +9,33 @@
         <mat-progress-bar mode="indeterminate"></mat-progress-bar>
     </div>
 
+    <div *ngIf="error">
+        <p>Error: {{ error }}</p>
+        <button mat-button (click)="goBack()">Go back</button>
+    </div>
+
 
     <div id="result" *ngIf="gotResult">
         <table class="table table-striped">
             <tr>
                 <th>Access Token</th>
-                <td id="access-token">{{ accessToken }}</td>
+                <td id="access-token">
+                    {{ accessToken }}
+                    <button mat-button class="right-button" (click)="CopyToClipboard(accessToken)">Copy</button></td>
             </tr>
             <tr>
                 <th>Id Token</th>
-                <td id="id-token">{{ idToken }}</td>
+                <td id="id-token">
+                    {{ idToken }}
+                    <button mat-button class="right-button" (click)="CopyToClipboard(idToken)">Copy</button>
+                </td>
             </tr>
             <tr>
                 <th>Refresh Token</th>
-                <td id="refresh-token">{{ refreshToken }}</td>
+                <td id="refresh-token">
+                    {{ refreshToken }}
+                    <button mat-button class="right-button" (click)="testRefreshToken()">Test</button>
+                </td>
             </tr>
             <tr>
                 <th>Expires In</th>

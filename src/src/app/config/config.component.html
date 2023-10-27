@@ -3,34 +3,51 @@
         <h4 class="title">Simple OIDC Client</h4>
         <p>This is a simple OIDC client that uses the Authorization Code Flow (without PKCE).</p>
     </div>
-    <form class="input-form">
+    <form class="input-form" (ngSubmit)="startAuthentication()" #configForm="ngForm">
         <h3 class="title">Configuration</h3>
 
         <div class="info-box">
           <mat-icon aria-hidden="false" aria-label="info icon" fontIcon="info"></mat-icon><br/>
-          Make sure you have a client configured in your OIDC authority with client ID <span class="inline-code">{{clientId}}</span> and a redirect URI of <span class="inline-code">{{callbackUrl}}</span>.
+          Make sure you have a client configured in your OIDC authority with client ID <span class="inline-code">{{model.clientId}}</span> and a redirect URI of <span class="inline-code">{{model.callbackUrl}}</span>.
         </div>
 
         <p>Add the URL of your OIDC authority/server below:</p>
 
         <mat-form-field class="form-full-width">
             <mat-label>OIDC Authority</mat-label>
-            <input matInput [(ngModel)]="oidcAuthority" name="authority" placeholder="https://localhost:5000">
+            <input matInput [(ngModel)]="model.oidcAuthority"
+                   id="authority"
+                   name="authority"
+                   placeholder="https://localhost:5000"
+                   required
+                   #authority="ngModel">
         </mat-form-field>
+        <div [hidden]="authority.valid || authority.pristine"
+             class="alert alert-danger">
+              Authority is required
+        </div>
 
         <p>Add the client ID of your OIDC client below:</p>
 
         <mat-form-field class="form-full-width">
             <mat-label>OIDC Client ID</mat-label>
-            <input matInput [(ngModel)]="clientId" name="clientId" placeholder="test-client">
+            <input matInput [(ngModel)]="model.clientId"
+                   name="clientId"
+                   placeholder="test-client"
+                   required
+                   #cliendId="ngModel">
         </mat-form-field>
+        <div [hidden]="cliendId.valid || cliendId.pristine"
+             class="alert alert-danger">
+            Client ID is required
+        </div>
 
         <p>Add or remove scopes:</p>
 
         <mat-form-field class="form-full-width">
           <mat-label>Scopes</mat-label>
           <mat-chip-grid #chipGrid aria-label="Enter/edit">
-            <mat-chip-row *ngFor="let scope of scopes"
+            <mat-chip-row *ngFor="let scope of model.scopes"
                           (removed)="removeScope(scope)">
               {{scope}}
               <button matChipRemove [attr.aria-label]="'remove ' + scope">
@@ -46,7 +63,10 @@
           </mat-chip-grid>
         </mat-form-field>
 
-        <button mat-raised-button type="button" color="primary" (click)="startAuthentication()">Start Authentication</button>
+        <button mat-raised-button type="submit" color="primary" [disabled]="!configForm.valid || running">Start Authentication</button>
     </form>
-  <pre id="output"></pre>
+    <div *ngIf="running">
+      <p>Fetching discovery document...</p>
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  </div>
   </div>

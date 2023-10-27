@@ -29,6 +29,18 @@ body {
     font-weight: bold;
 }
 
+.alert {
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    padding: 8px;
+    margin-bottom: 8px;
+}
+
+.alert-danger {
+    background-color: #eb7979;
+}
+
 /* Striped table */
 .table-striped tbody tr:nth-of-type(odd) {
     background-color: #eb7979;

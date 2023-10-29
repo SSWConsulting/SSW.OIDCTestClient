@@ -14,6 +14,7 @@ Sometimes when working on an OIDC server you need to test changes that require a
 * **Simple validation:** Checks that a client ID and authority have been provided (note authority is not validated as a URL, see: #1)
 * **Configuraable client ID:** Client ID can be changed to suit testing for a specific client configuration in your server, or set up a test client (see below)
 * **Configurable scopes:** Default scopes are provided, but you can remove these and/or add your own
+* **Copy tokens to clipboard:** For easy testing in [https://jwt.ms](https://jwt.ms) or [DevToys](https://devtoys.app/)
 
 ## Pre-requisites
 

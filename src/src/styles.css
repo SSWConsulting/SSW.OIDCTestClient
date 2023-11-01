@@ -107,3 +107,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .right-button {
     float: right;
 }
+
+.horizontal-form-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}

@@ -13,7 +13,8 @@
 
         <p>Add the URL of your OIDC authority/server below:</p>
 
-        <mat-form-field class="form-full-width">
+        <div class="horizontal-form-group">
+          <mat-form-field class="form-full-width">
             <mat-label>OIDC Authority</mat-label>
             <input matInput [(ngModel)]="model.oidcAuthority"
                    id="authority"
@@ -21,22 +22,28 @@
                    placeholder="https://localhost:5000"
                    required
                    #authority="ngModel">
-        </mat-form-field>
+          </mat-form-field>
+          <mat-checkbox [(ngModel)]="model.saveConfig"
+                        id="saveConfig"
+                        name="saveConfig"
+                        #saveConfig="ngModel">Save</mat-checkbox>
+        </div>
         <div [hidden]="authority.valid || authority.pristine"
-             class="alert alert-danger">
+            class="alert alert-danger">
               Authority is required
         </div>
+        
 
         <p>Add the client ID of your OIDC client below:</p>
 
         <mat-form-field class="form-full-width">
-            <mat-label>OIDC Client ID</mat-label>
+          <mat-label>OIDC Client ID</mat-label>
             <input matInput [(ngModel)]="model.clientId"
-                   name="clientId"
-                   placeholder="test-client"
-                   required
-                   #cliendId="ngModel">
-        </mat-form-field>
+                  name="clientId"
+                  placeholder="test-client"
+                  required
+                  #cliendId="ngModel">
+          </mat-form-field>
         <div [hidden]="cliendId.valid || cliendId.pristine"
              class="alert alert-danger">
             Client ID is required

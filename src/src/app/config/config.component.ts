@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatChipInputEvent } from '@angular/material/chips';
 import {COMMA, ENTER, V} from '@angular/cdk/keycodes';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -10,7 +10,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './config.component.html',
   styleUrls: ['./config.component.css']
 })
-export class ConfigComponent {
+export class ConfigComponent implements OnInit {
   title = 'OidcTestClient';
 
   addOnBlur = true;
@@ -25,6 +25,13 @@ export class ConfigComponent {
     window.location.origin + '/callback');
 
   constructor(private httpClient: HttpClient, private snackBar: MatSnackBar) { }
+
+  ngOnInit(): void {
+    let authority = localStorage.getItem('oidcAuthority');
+    if (authority) {
+      this.model.oidcAuthority = authority;
+    }
+  }
 
   addScope(event: MatChipInputEvent) {
     const value = (event.value || '').trim();
@@ -53,6 +60,12 @@ export class ConfigComponent {
     this.model.oidcAuthority = this.model.oidcAuthority.replace(/\/$/, "");
 
     const discoUrl = `${this.model.oidcAuthority}/.well-known/openid-configuration`;
+
+    if (this.model.saveConfig) {
+      localStorage.setItem('oidcAuthority', this.model.oidcAuthority);
+    } else {
+      localStorage.removeItem('oidcAuthority');
+    }
 
     this.httpClient.get<DiscoveryDocument>(discoUrl)
     .subscribe({
@@ -123,6 +136,7 @@ export class Config {
   scopes: string[] = [];
   clientId: string = "";
   callbackUrl: string = "";
+  saveConfig: boolean = false;
 }
 
 export class DiscoveryDocument {
